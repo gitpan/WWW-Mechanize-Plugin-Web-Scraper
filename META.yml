@@ -1,0 +1,17 @@
+--- #YAML:1.0
+name:                WWW-Mechanize-Plugin-Web-Scraper
+version:             0.01
+abstract:            Scrape the planet!
+license:             ~
+generated_by:        ExtUtils::MakeMaker version 6.36
+distribution_type:   module
+requires:     
+    Test::Simple:                  0.44
+    Web::Scraper:                  0
+    WWW::Mechanize:                0
+    WWW::Mechanize::Pluggable:     0.1
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
+    version: 1.2
+author:
+    - M. Blom (blom@cpan.org)
