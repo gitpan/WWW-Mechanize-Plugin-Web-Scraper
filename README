@@ -6,16 +6,16 @@ SYNOPSIS
       use WWW::Mechanize::Pluggable;
 
       my $mech = WWW::Mechanize::Pluggable->new();
-         $mech->get('http://search.cpan.org/');
+         $mech->get("http://search.cpan.org/");
          $mech->submit_form(
-            form_name => 'f',
+            form_name => "f",
             fields    => {
-               query  => 'WWW::Mechanize'
+               query  => "WWW::Mechanize"
             }
          );
 
-      my $results = $mech->scrape( '/html/body/h2/a', 'results[]', 
-                                   { title => 'TEXT, url => '@href' }
+      my $results = $mech->scrape( "/html/body/h2/a", "results[]", 
+                                   { title => "TEXT", url => '@href' }
                     );
      
 DESCRIPTION
@@ -47,7 +47,7 @@ BUGS
     raper>.
 
 AUTHOR
-    M. Blom, <blom@cpan.org>, <http://menno.b10m.net/perl/>
+    Menno Blom, <blom@cpan.org>, <http://menno.b10m.net/perl/>
 
 COPYRIGHT
     This program is free software; you can redistribute it and/or modify it

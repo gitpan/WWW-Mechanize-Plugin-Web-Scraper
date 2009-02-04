@@ -3,7 +3,7 @@ package WWW::Mechanize::Plugin::Web::Scraper;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Web::Scraper;
 
@@ -20,13 +20,12 @@ sub scrape {
    my ($mech, @processes) = @_;
 
    my $scraper = scraper { process @processes };
-   return $scraper->scrape($mech->content); 
+   return $scraper->scrape($mech->response);
 }
 
 1;
 
 __END__
-#################### main pod documentation begin ###################
 
 =head1 NAME
 
@@ -38,16 +37,16 @@ WWW::Mechanize::Plugin::Web::Scraper - Scrape the planet!
   use WWW::Mechanize::Pluggable;
 
   my $mech = WWW::Mechanize::Pluggable->new();
-     $mech->get('http://search.cpan.org/');
+     $mech->get("http://search.cpan.org/");
      $mech->submit_form(
-        form_name => 'f',
+        form_name => "f",
         fields    => {
-           query  => 'WWW::Mechanize'
+           query  => "WWW::Mechanize"
         }
      );
 
-  my $results = $mech->scrape( '/html/body/h2/a', 'results[]', 
-                               { title => 'TEXT, url => '@href' }
+  my $results = $mech->scrape( "/html/body/h2/a", "results[]", 
+                               { title => "TEXT", url => '@href' }
                 );
      
 
@@ -86,7 +85,7 @@ If these three people can't help, it then might be possible that this module is 
 
 =head1 AUTHOR
 
-M. Blom, E<lt>blom@cpan.orgE<gt>, L<http://menno.b10m.net/perl/>
+Menno Blom, E<lt>blom@cpan.orgE<gt>, L<http://menno.b10m.net/perl/>
 
 =head1 COPYRIGHT
 
